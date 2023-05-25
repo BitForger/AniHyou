@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 import API
+import RichText
 
 private let avatarSize: CGFloat = 110
 private let bannerHeight: CGFloat = 30
@@ -36,7 +37,7 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @State private var showLogOutDialog = false
     @State private var showingNotificationsSheet = false
-    @State private var infoType: ProfileInfoType = .about
+    @State private var infoType: ProfileInfoType = .activity
     
     var body: some View {
         NavigationView {
@@ -46,11 +47,35 @@ struct ProfileView: View {
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets())
                     
+                    if viewModel.userAbout != nil || viewModel.userInfo != nil {
+                        ScrollView(.vertical) {
+                            VStack {
+                                if isMyProfile {
+                                    RichText(html: (viewModel.userInfo?.about)!)
+                                        .transition(.easeOut)
+                                        .defaultStyle()
+                                } else {
+                                    RichText(html: viewModel.userAbout!)
+                                        .transition(.easeOut)
+                                        .defaultStyle()
+                                }
+                            }
+                        }
+                        .padding(16)
+                    } else {
+                        VStack {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                        .padding(16)
+                    }
+                    
                     if viewModel.userInfo != nil {
                         Section {
                             switch infoType {
-                            case .about:
-                                UserAboutView(userId: viewModel.userInfo!.id)
+//                            case .about:
+//                                UserAboutView(userId: viewModel.userInfo!.id)
                             case .activity:
                                 UserActivityView(userId: viewModel.userInfo!.id)
                             case .stats:
@@ -90,6 +115,7 @@ struct ProfileView: View {
                     viewModel.getMyUserInfo()
                 } else {
                     viewModel.getUserInfo(userId: userId!)
+                    viewModel.getUserAbout(userId: userId!)
                 }
             }
         }//:NavigationView
@@ -103,23 +129,16 @@ struct ProfileView: View {
                 .frame(height: bannerHeight)
             
             HStack {
-                if isMyProfile {
-                    Label(String(viewModel.userInfo?.unreadNotificationCount ?? 0), systemImage: "bell")
-                        .font(.title2)
-                        .foregroundColor(.clear)
-                        .padding(.horizontal, 16)
-                }
-                Spacer()
                 VStack {
                     CircleImageView(imageUrl: viewModel.userInfo?.avatar?.large, size: avatarSize)
                         .shadow(radius: 7)
                     
-                    Text(viewModel.userInfo?.name ?? "")
+                    Text(viewModel.userInfo?.name ?? "Name")
                         .font(.title2)
                         .bold()
-                        .frame(alignment: .center)
                         .transition(.move(edge: .top))
                 }
+                .padding(.leading, 16)
                 Spacer()
                 
                 if isMyProfile {
