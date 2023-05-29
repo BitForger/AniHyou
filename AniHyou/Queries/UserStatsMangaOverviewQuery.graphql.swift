@@ -4,61 +4,61 @@
 @_exported import ApolloAPI
 import API
 
-public class UserStatsAnimeOverviewQuery: GraphQLQuery {
-  public static let operationName: String = "UserStatsAnimeOverview"
+public class UserStatsMangaOverviewQuery: GraphQLQuery {
+  public static let operationName: String = "UserStatsMangaOverview"
   public static let document: ApolloAPI.DocumentType = .notPersisted(
     definition: .init(
       #"""
-      query UserStatsAnimeOverview($userId: Int) {
+      query UserStatsMangaOverview($userId: Int) {
         User(id: $userId) {
           __typename
           statistics {
             __typename
-            anime {
+            manga {
               __typename
               count
-              episodesWatched
-              minutesWatched
+              chaptersRead
+              volumesRead
               meanScore
               standardDeviation
               scores(sort: MEAN_SCORE) {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
               }
               formats {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
                 format
               }
               statuses {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
                 status
               }
               countries {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
                 country
               }
               releaseYears {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
                 releaseYear
               }
               startYears {
                 __typename
                 count
-                minutesWatched
+                chaptersRead
                 meanScore
                 startYear
               }
@@ -115,15 +115,15 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
         public static var __parentType: ApolloAPI.ParentType { API.Objects.UserStatisticTypes }
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
-          .field("anime", Anime?.self),
+          .field("manga", Manga?.self),
         ] }
 
-        public var anime: Anime? { __data["anime"] }
+        public var manga: Manga? { __data["manga"] }
 
-        /// User.Statistics.Anime
+        /// User.Statistics.Manga
         ///
         /// Parent Type: `UserStatistics`
-        public struct Anime: API.SelectionSet {
+        public struct Manga: API.SelectionSet {
           public let __data: DataDict
           public init(_dataDict: DataDict) { __data = _dataDict }
 
@@ -131,8 +131,8 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
           public static var __selections: [ApolloAPI.Selection] { [
             .field("__typename", String.self),
             .field("count", Int.self),
-            .field("episodesWatched", Int.self),
-            .field("minutesWatched", Int.self),
+            .field("chaptersRead", Int.self),
+            .field("volumesRead", Int.self),
             .field("meanScore", Double.self),
             .field("standardDeviation", Double.self),
             .field("scores", [Score?]?.self, arguments: ["sort": "MEAN_SCORE"]),
@@ -144,8 +144,8 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
           ] }
 
           public var count: Int { __data["count"] }
-          public var episodesWatched: Int { __data["episodesWatched"] }
-          public var minutesWatched: Int { __data["minutesWatched"] }
+          public var chaptersRead: Int { __data["chaptersRead"] }
+          public var volumesRead: Int { __data["volumesRead"] }
           public var meanScore: Double { __data["meanScore"] }
           public var standardDeviation: Double { __data["standardDeviation"] }
           public var scores: [Score?]? { __data["scores"] }
@@ -155,7 +155,7 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
           public var releaseYears: [ReleaseYear?]? { __data["releaseYears"] }
           public var startYears: [StartYear?]? { __data["startYears"] }
 
-          /// User.Statistics.Anime.Score
+          /// User.Statistics.Manga.Score
           ///
           /// Parent Type: `UserScoreStatistic`
           public struct Score: API.SelectionSet {
@@ -166,16 +166,16 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
           }
 
-          /// User.Statistics.Anime.Format
+          /// User.Statistics.Manga.Format
           ///
           /// Parent Type: `UserFormatStatistic`
           public struct Format: API.SelectionSet {
@@ -186,18 +186,18 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
               .field("format", GraphQLEnum<API.MediaFormat>?.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
             public var format: GraphQLEnum<API.MediaFormat>? { __data["format"] }
           }
 
-          /// User.Statistics.Anime.Status
+          /// User.Statistics.Manga.Status
           ///
           /// Parent Type: `UserStatusStatistic`
           public struct Status: API.SelectionSet {
@@ -208,18 +208,18 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
               .field("status", GraphQLEnum<API.MediaListStatus>?.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
             public var status: GraphQLEnum<API.MediaListStatus>? { __data["status"] }
           }
 
-          /// User.Statistics.Anime.Country
+          /// User.Statistics.Manga.Country
           ///
           /// Parent Type: `UserCountryStatistic`
           public struct Country: API.SelectionSet {
@@ -230,18 +230,18 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
               .field("country", API.CountryCode?.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
             public var country: API.CountryCode? { __data["country"] }
           }
 
-          /// User.Statistics.Anime.ReleaseYear
+          /// User.Statistics.Manga.ReleaseYear
           ///
           /// Parent Type: `UserReleaseYearStatistic`
           public struct ReleaseYear: API.SelectionSet {
@@ -252,18 +252,18 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
               .field("releaseYear", Int?.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
             public var releaseYear: Int? { __data["releaseYear"] }
           }
 
-          /// User.Statistics.Anime.StartYear
+          /// User.Statistics.Manga.StartYear
           ///
           /// Parent Type: `UserStartYearStatistic`
           public struct StartYear: API.SelectionSet {
@@ -274,13 +274,13 @@ public class UserStatsAnimeOverviewQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("minutesWatched", Int.self),
+              .field("chaptersRead", Int.self),
               .field("meanScore", Double.self),
               .field("startYear", Int?.self),
             ] }
 
             public var count: Int { __data["count"] }
-            public var minutesWatched: Int { __data["minutesWatched"] }
+            public var chaptersRead: Int { __data["chaptersRead"] }
             public var meanScore: Double { __data["meanScore"] }
             public var startYear: Int? { __data["startYear"] }
           }
