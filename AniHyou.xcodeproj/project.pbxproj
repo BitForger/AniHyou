@@ -148,6 +148,8 @@
 		48AF5394289E7371006D40B6 /* ThreadDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF5393289E7371006D40B6 /* ThreadDetailsView.swift */; };
 		48AF5396289E7701006D40B6 /* ThreadComments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 48AF5395289E7701006D40B6 /* ThreadComments.graphql */; };
 		48AF5398289E7743006D40B6 /* ThreadDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF5397289E7743006D40B6 /* ThreadDetailsViewModel.swift */; };
+		48BB95D12A24464500DE2CD5 /* ObservableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BB95D02A24464500DE2CD5 /* ObservableScrollView.swift */; };
+		48BB95D42A245CBC00DE2CD5 /* SwiftUIFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 48BB95D32A245CBC00DE2CD5 /* SwiftUIFlow */; };
 		48BCA59929672334005D3405 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCA59829672334005D3405 /* Genre.swift */; };
 		48C608EB290D1526004781C2 /* SearchStaff.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 48C608EA290D1526004781C2 /* SearchStaff.graphql */; };
 		48C608ED290D15DF004781C2 /* SearchCharacter.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 48C608EC290D15DF004781C2 /* SearchCharacter.graphql */; };
@@ -157,7 +159,6 @@
 		48C608F7290D18BB004781C2 /* SearchUserQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C608F3290D18BB004781C2 /* SearchUserQuery.graphql.swift */; };
 		48C608F8290D18BB004781C2 /* SearchCharacterQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C608F4290D18BB004781C2 /* SearchCharacterQuery.graphql.swift */; };
 		48C608F9290D18BB004781C2 /* SearchStaffQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C608F5290D18BB004781C2 /* SearchStaffQuery.graphql.swift */; };
-		48C6F9E02A0BB4D00084ED8E /* MediaMultimediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6F9DF2A0BB4D00084ED8E /* MediaMultimediaView.swift */; };
 		48C6F9E22A0BBEFF0084ED8E /* VideoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6F9E12A0BBEFF0084ED8E /* VideoThumbnailView.swift */; };
 		48CA07A9287035530048854E /* MediaInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CA07A8287035530048854E /* MediaInfoType.swift */; };
 		48CA07AD28703BE60048854E /* MediaGeneralInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CA07AC28703BE60048854E /* MediaGeneralInfoView.swift */; };
@@ -444,6 +445,7 @@
 		48AF5393289E7371006D40B6 /* ThreadDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDetailsView.swift; sourceTree = "<group>"; };
 		48AF5395289E7701006D40B6 /* ThreadComments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ThreadComments.graphql; sourceTree = "<group>"; };
 		48AF5397289E7743006D40B6 /* ThreadDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDetailsViewModel.swift; sourceTree = "<group>"; };
+		48BB95D02A24464500DE2CD5 /* ObservableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableScrollView.swift; sourceTree = "<group>"; };
 		48BCA59829672334005D3405 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		48C608EA290D1526004781C2 /* SearchStaff.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchStaff.graphql; sourceTree = "<group>"; };
 		48C608EC290D15DF004781C2 /* SearchCharacter.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchCharacter.graphql; sourceTree = "<group>"; };
@@ -453,7 +455,6 @@
 		48C608F3290D18BB004781C2 /* SearchUserQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserQuery.graphql.swift; sourceTree = "<group>"; };
 		48C608F4290D18BB004781C2 /* SearchCharacterQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCharacterQuery.graphql.swift; sourceTree = "<group>"; };
 		48C608F5290D18BB004781C2 /* SearchStaffQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStaffQuery.graphql.swift; sourceTree = "<group>"; };
-		48C6F9DF2A0BB4D00084ED8E /* MediaMultimediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMultimediaView.swift; sourceTree = "<group>"; };
 		48C6F9E12A0BBEFF0084ED8E /* VideoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailView.swift; sourceTree = "<group>"; };
 		48CA07A8287035530048854E /* MediaInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfoType.swift; sourceTree = "<group>"; };
 		48CA07AC28703BE60048854E /* MediaGeneralInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGeneralInfoView.swift; sourceTree = "<group>"; };
@@ -535,6 +536,7 @@
 				481A6B102864CD0F00AB9C89 /* Kingfisher in Frameworks */,
 				488C268828539CC30005EE15 /* KeychainSwift in Frameworks */,
 				480F882929426995004773CC /* API in Frameworks */,
+				48BB95D42A245CBC00DE2CD5 /* SwiftUIFlow in Frameworks */,
 				48604D7B28A15AD1006A6AF8 /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +705,7 @@
 				48FC947A2868653E00C87F56 /* RectangleTextView.swift */,
 				481AD4FD2851F677001779EE /* CoverPlaceholderView.swift */,
 				48CA07B428706D8F0048854E /* CircleImageView.swift */,
+				48BB95D02A24464500DE2CD5 /* ObservableScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -873,7 +876,6 @@
 			isa = PBXGroup;
 			children = (
 				48F763F728ACE52600C82D75 /* Details */,
-				48C6F9DC2A0BB49F0084ED8E /* Multimedia */,
 				48F7640428ACE6A500C82D75 /* CharacterStaff */,
 				48F7640928ACE7A900C82D75 /* Relations */,
 				488763DD29781AAC00402934 /* Stats */,
@@ -1013,31 +1015,6 @@
 			path = Thread;
 			sourceTree = "<group>";
 		};
-		48C6F9DC2A0BB49F0084ED8E /* Multimedia */ = {
-			isa = PBXGroup;
-			children = (
-				48C6F9DE2A0BB4C00084ED8E /* Views */,
-				48C6F9DD2A0BB4AF0084ED8E /* ViewModels */,
-			);
-			path = Multimedia;
-			sourceTree = "<group>";
-		};
-		48C6F9DD2A0BB4AF0084ED8E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		48C6F9DE2A0BB4C00084ED8E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				48C6F9DF2A0BB4D00084ED8E /* MediaMultimediaView.swift */,
-				48C6F9E12A0BBEFF0084ED8E /* VideoThumbnailView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		48CA07AA28703B530048854E /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,6 +1022,7 @@
 				4832B033285F953100E79D27 /* MediaStatView.swift */,
 				48E80F9D28734DA5002765FC /* FullCoverView.swift */,
 				48F278E3296ECED8000827F7 /* MediaTagItemView.swift */,
+				48C6F9E12A0BBEFF0084ED8E /* VideoThumbnailView.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -1444,6 +1422,7 @@
 				48604D7A28A15AD1006A6AF8 /* RichText */,
 				480F882829426995004773CC /* API */,
 				48D39BE82A1390B7001D47BE /* Apollo */,
+				48BB95D32A245CBC00DE2CD5 /* SwiftUIFlow */,
 			);
 			productName = AniHyou;
 			productReference = 481AD4DA2851CE73001779EE /* AniHyou.app */;
@@ -1528,6 +1507,7 @@
 				481A6B0E2864CD0F00AB9C89 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				48604D7928A15AD1006A6AF8 /* XCRemoteSwiftPackageReference "RichText" */,
 				48D39BE72A1390B7001D47BE /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				48BB95D22A245CBC00DE2CD5 /* XCRemoteSwiftPackageReference "SwiftUIFlow" */,
 			);
 			productRefGroup = 481AD4DB2851CE73001779EE /* Products */;
 			projectDirPath = "";
@@ -1675,11 +1655,11 @@
 				48E12595297942DC002DF6CA /* VerticalBarsStatsView.swift in Sources */,
 				48FBC66228CE3E88009AAF4A /* UpdatedMediaEntry.swift in Sources */,
 				48099963288B2C60005AE427 /* UserAboutView.swift in Sources */,
-				48C6F9E02A0BB4D00084ED8E /* MediaMultimediaView.swift in Sources */,
 				48CA07A9287035530048854E /* MediaInfoType.swift in Sources */,
 				48C608F8290D18BB004781C2 /* SearchCharacterQuery.graphql.swift in Sources */,
 				48C608F9290D18BB004781C2 /* SearchStaffQuery.graphql.swift in Sources */,
 				488A91192A023E5F00C7FF94 /* MediaSortedQuery.graphql.swift in Sources */,
+				48BB95D12A24464500DE2CD5 /* ObservableScrollView.swift in Sources */,
 				481A6B0928637C1D00AB9C89 /* DatePickerToggleView.swift in Sources */,
 				4832B036285F9E1900E79D27 /* ExpandableTextView.swift in Sources */,
 				4884AAAE2965A79D009A3B8C /* GenreTagCollectionQuery.graphql.swift in Sources */,
@@ -2207,6 +2187,14 @@
 				minimumVersion = 20.0.0;
 			};
 		};
+		48BB95D22A245CBC00DE2CD5 /* XCRemoteSwiftPackageReference "SwiftUIFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ciaranrobrien/SwiftUIFlow";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		48D39BE72A1390B7001D47BE /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -2236,6 +2224,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 488C268628539CC30005EE15 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		48BB95D32A245CBC00DE2CD5 /* SwiftUIFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48BB95D22A245CBC00DE2CD5 /* XCRemoteSwiftPackageReference "SwiftUIFlow" */;
+			productName = SwiftUIFlow;
 		};
 		48D39BE82A1390B7001D47BE /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
