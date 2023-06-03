@@ -50,7 +50,11 @@ struct ExpandableTextView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             if self.truncated {
-                Button(action: { self.expanded.toggle() }) {
+                Button(action: {
+                    withAnimation {
+                        self.expanded.toggle()
+                    }
+                }) {
                     Text(self.expanded ? "Show less" : "Show more")
                         .font(.footnote)
                 }
