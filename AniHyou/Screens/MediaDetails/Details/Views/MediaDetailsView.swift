@@ -56,7 +56,7 @@ struct MediaDetailsView: View {
                         .padding(.top)
                         
                         // MARK: - Synopsis
-                        ExpandableTextView(viewModel.mediaDetails?.description?.htmlStripped)
+                        ExpandableTextView(viewModel.mediaDetails?.description?.htmlStripped, isHtml: false)
                             .padding(.top)
                             .padding(.leading)
                             .padding(.trailing)

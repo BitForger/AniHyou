@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RichText
 
 struct ExpandableTextView: View {
     
@@ -15,8 +16,11 @@ struct ExpandableTextView: View {
     var fontSize: CGFloat = 16
     
     private var text: String
-    init(_ text: String?) {
+    private var isHtml: Bool
+
+    init(_ text: String?, isHtml: Bool?) {
         self.text = text ?? ""
+        self.isHtml = isHtml ?? false
     }
     
     private func determineTruncation(_ geometry: GeometryProxy) {
@@ -39,15 +43,26 @@ struct ExpandableTextView: View {
     
     var body: some View {
         VStack(alignment: .trailing, spacing: 10) {
-            Text(self.text)
-                .font(.system(size: fontSize))
-                .lineLimit(self.expanded ? nil : lineLimit)
-                .background(GeometryReader { geometry in
-                    Color.clear.onAppear {
-                        self.determineTruncation(geometry)
-                    }
-                })
-                .frame(maxWidth: .infinity, alignment: .leading)
+            if self.isHtml {
+                RichText(html: self.text)
+                    .defaultStyle()
+                    .frame(maxWidth: .infinity, maxHeight: self.expanded ? .greatestFiniteMagnitude : 32.0, alignment: .topLeading)
+                    .background(GeometryReader { geo in
+                        Color.clear.onAppear {
+                            self.determineTruncation(geo)
+                        }
+                    })
+            } else {
+                Text(self.text)
+                    .font(.system(size: fontSize))
+                    .lineLimit(self.expanded ? nil : lineLimit)
+                    .background(GeometryReader { geometry in
+                        Color.clear.onAppear {
+                            self.determineTruncation(geometry)
+                        }
+                    })
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             
             if self.truncated {
                 Button(action: {
@@ -65,6 +80,6 @@ struct ExpandableTextView: View {
 
 struct ExpandableTextView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpandableTextView("")
+        ExpandableTextView("", isHtml: false)
     }
 }

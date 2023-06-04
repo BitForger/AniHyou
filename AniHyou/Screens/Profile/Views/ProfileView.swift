@@ -51,13 +51,9 @@ struct ProfileView: View {
                         ScrollView(.vertical) {
                             VStack {
                                 if isMyProfile {
-                                    RichText(html: (viewModel.userInfo?.about)!)
-                                        .transition(.easeOut)
-                                        .defaultStyle()
+                                    ExpandableTextView(viewModel.userInfo?.about!, isHtml: true)
                                 } else {
-                                    RichText(html: viewModel.userAbout!)
-                                        .transition(.easeOut)
-                                        .defaultStyle()
+                                    ExpandableTextView(viewModel.userAbout!, isHtml: true)
                                 }
                             }
                         }
@@ -65,7 +61,7 @@ struct ProfileView: View {
                     } else {
                         VStack {
                             Spacer()
-                            ProgressView()
+                            Text("Unable to load user bio")
                             Spacer()
                         }
                         .padding(16)
