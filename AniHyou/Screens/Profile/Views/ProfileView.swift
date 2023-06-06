@@ -36,7 +36,6 @@ struct ProfileView: View {
     }
     @StateObject private var viewModel = ProfileViewModel()
     @State private var showLogOutDialog = false
-    @State private var showingNotificationsSheet = false
     @State private var infoType: ProfileInfoType = .activity
     
     var body: some View {
@@ -95,16 +94,6 @@ struct ProfileView: View {
                 }
                 //:LazyVStack
             }//:VScrollView
-            .toolbar {
-                ToolbarItem {
-                    if isMyProfile {
-                        NavigationLink(destination: SettingsView()) {
-                            Label("Settings", systemImage: "gearshape")
-                                .shadow(radius: 10)
-                        }
-                    }
-                }
-            }
             .ignoresSafeArea(edges: .top)
             .onAppear {
                 if isMyProfile {
@@ -138,15 +127,10 @@ struct ProfileView: View {
                 Spacer()
                 
                 if isMyProfile {
-                    Button(action: { showingNotificationsSheet = true }) {
-                        Label(String(viewModel.userInfo?.unreadNotificationCount ?? 0), systemImage: "bell")
-                            .font(.title2)
+                    NavigationLink(destination: SettingsView()) {
+                        Label("Settings", systemImage: "gearshape")
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.top)
-                    .sheet(isPresented: $showingNotificationsSheet) {
-                        NotificationsView()
-                    }
+                    .padding(.horizontal)
                 }
             }
             .padding(.top, 85)
