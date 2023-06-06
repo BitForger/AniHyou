@@ -1,5 +1,5 @@
 //
-//  ExpandableTextView.swift
+//  ProfileBioView.swift
 //  AniHyou
 //
 //  Created by Axel Lopez on 19/6/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RichText
 
-struct ExpandableTextView: View {
+struct ProfileBioView: View {
     
     @State private var expanded: Bool = false
     @State private var truncated: Bool = false
@@ -80,6 +80,6 @@ struct ExpandableTextView: View {
 
 struct ExpandableTextView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpandableTextView("", isHtml: false)
+        ProfileBioView("", isHtml: false)
     }
 }

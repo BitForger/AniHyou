@@ -51,9 +51,9 @@ struct ProfileView: View {
                         ScrollView(.vertical) {
                             VStack {
                                 if isMyProfile {
-                                    ExpandableTextView(viewModel.userInfo?.about!, isHtml: true)
+                                    ProfileBioView(viewModel.userInfo?.about!, isHtml: true)
                                 } else {
-                                    ExpandableTextView(viewModel.userAbout!, isHtml: true)
+                                    ProfileBioView(viewModel.userAbout!, isHtml: true)
                                 }
                             }
                         }
