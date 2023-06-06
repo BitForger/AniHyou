@@ -78,7 +78,7 @@ struct ProfileBioView: View {
     }
 }
 
-struct ExpandableTextView_Previews: PreviewProvider {
+struct ProfileBioView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileBioView("", isHtml: false)
     }
