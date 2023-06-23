@@ -15,11 +15,16 @@ private let bannerHeight: CGFloat = 10
 
 struct ProfileView: View {
     
-    var userId: Int? = nil
+    var userId: Int? = nil {
+        didSet {
+            overviewViewModel.getAnimeOverview(userId: viewModel.userInfo!.id)
+        }
+    }
     var isMyProfile: Bool {
         return userId == nil
     }
     @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var overviewViewModel = OverviewStatsViewModel()
     @State private var showLogOutDialog = false
     @State private var infoType: ProfileInfoType = .activity
     @State private var scrollOffset = CGFloat.zero
@@ -66,6 +71,11 @@ struct ProfileView: View {
                     }
                 }
                 .padding(16)
+                
+                Divider()
+                if !overviewViewModel.isLoading {
+                    mainAnimeStats
+                }
                 
                 if viewModel.userInfo != nil {
                     Section {
@@ -149,6 +159,21 @@ struct ProfileView: View {
             }
             .padding(.top, 85)
         }
+    }
+    
+    private var mainAnimeStats: some View {
+        if (overviewViewModel.animeStats != nil) {
+            return AnyView(HStack {
+                MediaStatView(name: "Total Anime", value: String(overviewViewModel.animeStats!.count))
+                MediaStatView(name: "Episodes Watched", value: String(overviewViewModel.animeStats!.episodesWatched))
+                MediaStatView(name: "Days Watched", value: String(format: "%.2f", overviewViewModel.animeStats!.minutesWatched.minutesToDays()))
+                MediaStatView(name: "Mean Score", value: String(format: "%.2f", overviewViewModel.animeStats!.meanScore), showDivider: false)
+            })
+        }
+        
+        return AnyView(HStack {
+            ProgressView()
+        })
     }
 }
 
