@@ -74,9 +74,16 @@ struct ProfileView: View {
                 .padding(.bottom, 16)
                 .padding(.trailing, 16)
                 
-                Divider()
-                if !overviewViewModel.isLoading {
-                    mainAnimeStats
+                if viewModel.userInfo != nil {
+                    Section {
+                        AnimeQuickStats(userId: viewModel.userInfo?.id)
+                        MangaQuickStats(userId: viewModel.userInfo?.id)
+                    } header: {
+//                        Text("Quick Stats")
+//                            .padding(.leading, 16)
+//                            .padding(.bottom, 4)
+//                            .font(.title2)
+                    }
                 }
                 
                 if viewModel.userInfo != nil {
@@ -161,21 +168,6 @@ struct ProfileView: View {
             }
             .padding(.top, 85)
         }
-    }
-    
-    private var mainAnimeStats: some View {
-        if (overviewViewModel.animeStats != nil) {
-            return AnyView(HStack {
-                MediaStatView(name: "Total Anime", value: String(overviewViewModel.animeStats!.count))
-                MediaStatView(name: "Episodes Watched", value: String(overviewViewModel.animeStats!.episodesWatched))
-                MediaStatView(name: "Days Watched", value: String(format: "%.2f", overviewViewModel.animeStats!.minutesWatched.minutesToDays()))
-                MediaStatView(name: "Mean Score", value: String(format: "%.2f", overviewViewModel.animeStats!.meanScore), showDivider: false)
-            })
-        }
-        
-        return AnyView(HStack {
-            ProgressView()
-        })
     }
 }
 
