@@ -70,7 +70,9 @@ struct ProfileView: View {
                         }
                     }
                 }
-                .padding(16)
+                .padding(.leading, 24)
+                .padding(.bottom, 16)
+                .padding(.trailing, 16)
                 
                 Divider()
                 if !overviewViewModel.isLoading {

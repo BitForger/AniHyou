@@ -43,7 +43,7 @@ struct ExpandableRichText: View {
             RichText(html: html)
                 .defaultStyle()
                 .customCSS(spoilerCss)
-                .frame(maxWidth: .infinity, maxHeight: isExpanded ? .greatestFiniteMagnitude : 32.0, alignment: .topLeading)
+                .frame(maxWidth: .infinity, maxHeight: isExpanded ? .greatestFiniteMagnitude : 30.0, alignment: .top)
                 .background(GeometryReader { geo in
                     Color.clear.onAppear {
                         determineTruncation(geo)
